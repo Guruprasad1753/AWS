@@ -1,0 +1,65 @@
+ Version Control System (VCS):
+
+Why we need VCS?
+# Collaboration 
+# Storing Versions
+# Figuring out what happened
+# Back up
+
+Issues without Version Control
+* One saved, all the changes made in the files are permanent and cannot be reverted back.
+* No record of what was done and by whom.
+* Down time that can occur because of a faulty update could cost millions in losses. 
+
+
+VERSION CONTROL SYSTEM:-
+
+
+Version control is a system that documents changes made to a file or set of files. It allows multiple users to manage multiple revisions of the same unit of information. It is a snapshot of your project over time.
+
+
+VERSION CONTROL TYPES:-
+
+Local Version Control(LVC)
+* The practice of having the version database in the local computer.
+* Local database keeps a record of the changes made to files in version database.
+
+VERSION CONTROL ISSUE:- Multiple people parallelly working on the same project.
+SOLUTION:- Centralized version control
+
+CENTRALIZED VERSION CONTROL(CVC):-
+
+# Local version control's issues are resolved by Centralized version control
+# In CVC, a central repository is maintained where all the versioned files are kept.
+# Now users can checkout, and check in files from their different computers at any time.
+Issue:- In case of central server failure whole system goes down.
+Solution:-Distributed version control.
+
+DISTRIBUTED VERSION CONTROL(DVCS)
+
+# Version database is stored at every user's local system and at the remote server.
+# Users manipulate the local files and then upload the changes to the remote server.
+# if any of the server die, a client server can be used to restore.
+
+
+
+
+
+Git:-Git is an open-source distributed version control system(DVCS), which records changes made to the files laying emphasis on Speed, Data integrity and Distributed, Non-Linear Workflows.
+
+Git File Workflow:-
+
+The Remote Repository is the server where all the collaboration upload changes made to the files.
+
+* "Local Repository" is user's copy of the version database.
+* The user accesses all the files through local repository and then push the change made to the "Remote Repository".
+* "work Space" is user's active directory.
+* The user modifies existing files and creates new files in this space. Git tracks these changes compared to your local repository.
+* stage is a place where all the modify files marked to be committed are placed.
+* Clone command creates a copy of an existing remote repository inside the local repository.
+* push command pushes all the changes made in the local repository to the remote repository.
+* Fetch command collects changes made in the remote repository and copies them into the local repository.
+* pull like fetch gets all the changes from the remote repository and copies them into the local repository.
+* pull merges those changes to the current working directory.
+*.GIT FOLDER
+when we clone the empty repository very first time we have the two objects .gitfolder and README.md folder
