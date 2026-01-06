@@ -1,0 +1,167 @@
+AWS Infrastructure Explained: Regions, Availability Zones, Virtualization, and Hypervisors (With Architecture Diagrams)
+Amazon Web Services (AWS) powers millions of applications worldwide using a highly reliable, scalable, and fault-tolerant infrastructure. To design resilient cloud architectures—or to succeed in AWS certifications—it’s critical to understand how AWS infrastructure is structured internally.
+
+This guide explains AWS infrastructure concepts with architecture diagrams to make learning intuitive and practical.
+
+What Is Infrastructure in Cloud Computing?
+Infrastructure is the foundational layer that supports applications and services.
+
+Traditional Infrastructure
+Physical servers
+
+Storage systems
+
+Networking hardware
+
+Data centers
+
+Cloud Infrastructure (AWS)
+AWS abstracts physical infrastructure and delivers it as on-demand virtual resources:
+
+Compute (EC2)
+
+Storage (EBS, S3)
+
+Networking (VPC)
+
+Security & monitoring
+
+This model is called Infrastructure as a Service (IaaS).
+
+AWS Global Infrastructure Overview (Diagram)
++--------------------------------------------------+
+|              AWS Global Infrastructure            |
+|                                                  |
+|   +-----------+     +-----------+     +--------+ |
+|   |  Region A |     |  Region B |     | Region C| |
+|   |           |     |           |     |         | |
+|   | AZ1 AZ2   |     | AZ1 AZ2   |     | AZ1 AZ2 | |
+|   +-----------+     +-----------+     +--------+ |
++--------------------------------------------------+
+Each region is isolated, ensuring security, fault tolerance, and compliance.
+
+What Are AWS Regions?
+An AWS Region is a geographic location that contains multiple Availability Zones.
+
+Key Characteristics
+Independent from other regions
+
+Designed for low latency and high durability
+
+Meets regional compliance requirements
+
+Example AWS Regions
+us-east-1 (North Virginia)
+
+eu-west-1 (Ireland)
+
+ap-south-1 (Mumbai)
+
+AWS Region Architecture (Diagram)
+AWS Region (e.g., us-east-1)
+┌───────────────────────────────┐
+│                               │
+│  +────────+  +────────+       │
+│  |  AZ-1  |  |  AZ-2  |       │
+│  |        |  |        |       │
+│  +────────+  +────────+       │
+│                               │
+│  +────────+                   │
+│  |  AZ-3  |                   │
+│  |        |                   │
+│  +────────+                   │
+└───────────────────────────────┘
+What Are Availability Zones (AZs)?
+An Availability Zone (AZ) consists of one or more physically isolated data centers within a region.
+
+AZ Design Principles
+Independent power and cooling
+
+Separate networking
+
+High-speed connectivity to other AZs
+
+Multi-AZ Application Architecture (Diagram)
+           Load Balancer
+                 |
+        ---------------------
+        |                   |
+     EC2 (AZ-1)         EC2 (AZ-2)
+        |                   |
+     Database Replica   Database Replica
+✅ If AZ-1 fails, traffic automatically shifts to AZ-2
+✅ Ensures high availability and fault tolerance
+
+How Virtualization Works in AWS
+Virtualization allows multiple virtual machines (VMs) to share a single physical server.
+
+Without Virtualization
+Physical Server
+└── OS
+    └── Application
+With Virtualization
+Physical Server
+└── Hypervisor
+    ├── VM-1 (OS + App)
+    ├── VM-2 (OS + App)
+    └── VM-3 (OS + App)
+Benefits of Virtualization
+Efficient resource usage
+
+Faster provisioning
+
+Strong workload isolation
+
+Cost optimization
+
+AWS EC2 relies on virtualization to offer scalable compute instances on demand.
+
+What Is a Hypervisor?
+A hypervisor is the software layer that enables virtualization by managing and isolating virtual machines.
+
+Hypervisor Responsibilities
+CPU scheduling
+
+Memory allocation
+
+Storage and network access
+
+Security isolation
+
+Hypervisor Architecture (Diagram)
+Virtual Machines (EC2 Instances)
+┌──────────┐ ┌──────────┐ ┌──────────┐
+│   VM-1   │ │   VM-2   │ │   VM-3   │
+└──────────┘ └──────────┘ └──────────┘
+        ↓          ↓          ↓
+         ───────── Hypervisor ─────────
+                    ↓
+            Physical Hardware
+         (CPU, RAM, Disk, Network)
+Types of Hypervisors
+Type 1 (Bare-Metal Hypervisor)
+Runs directly on hardware
+
+High performance and security
+
+Used by cloud providers
+
+Examples:
+
+AWS Nitro Hypervisor
+
+VMware ESXi
+
+Microsoft Hyper-V
+
+Type 2 (Hosted Hypervisor)
+Runs on top of a host OS
+
+Used for development/testing
+
+Examples:
+
+
+VirtualBox
+
+VMware Workstation
