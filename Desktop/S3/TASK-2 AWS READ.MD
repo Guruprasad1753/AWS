@@ -53,7 +53,7 @@
 
 - Click **Create bucket**
 
-  ![01-s3-bucket](D:\Task\Compute-storage tasks\Task-2\01-s3-bucket.png)
+  ![preview](./s3-raw-bucket.png)
 
 ## Step 3: Add CORS
 
@@ -67,7 +67,7 @@
 
 - Save
 
-  ![02-CORS](D:\Task\Compute-storage tasks\Task-2\02-CORS.png)
+  ![preview](./raw-cors.png)
 
 ## Step 4: Create Processed Bucket
 
@@ -85,7 +85,7 @@
 
 - Click **Create bucket**
 
-  ![03-s2-processed bucket](D:\Task\Compute-storage tasks\Task-2\03-s2-processed bucket.png)
+  ![preview](./s3-processed-bucket.png)
 
 ------
 
@@ -108,9 +108,7 @@
 
 - Rule name: `replicate-all`
 
-- Scope: Apply to all objects
-
-  ![05-cereate life cycle rules](D:\Task\Compute-storage tasks\Task-2\05-cereate life cycle rules.png)
+- ![preview](./replicate-all.png)
 
 ## Step 8: Select Destination Bucket
 
@@ -161,7 +159,7 @@
 
 - Runtime: Python 3.11
 
-  ![06-lambda](D:\Task\Compute-storage tasks\Task-2\06-lambda.png)
+  ![preview](./function.png)
 
 ## Step 15: Configure Memory
 
@@ -171,7 +169,7 @@
 
 - Timeout: 30 seconds
 
-  ![07-lambda-confoguration](D:\Task\Compute-storage tasks\Task-2\07-lambda-confoguration.png)
+  ![preview](./image-config.png)
 
 ## Step 16: Add S3 Trigger
 
@@ -181,13 +179,13 @@
 
 - Event: PUT (ObjectCreated)
 
-  ![08-triggers](D:\Task\Compute-storage tasks\Task-2\08-triggers.png)
+  ![preview](./trigger-s3.png)
 
 ## Step 17: Add Pillow Layer
 
 - Add Pillow dependency (layer or zip)
 
-  ![09-add-lambda-layer](D:\Task\Compute-storage tasks\Task-2\09-add-lambda-layer.png)
+  ![preview](./pillow-layer.png)
 
 ## Step 18: Lambda Code
 
@@ -247,7 +245,7 @@ def lambda_handler(event, context):
 
 - Runtime: Python 3.11
 
-  ![10-lambda layer 2added with code](D:\Task\Compute-storage tasks\Task-2\10-lambda layer 2added with code.png)
+  ![preview](./presigned-url.png)
 
 ## Step 22: Code
 
@@ -273,7 +271,7 @@ def lambda_handler(event, context):
 
 - Run Lambda → Copy URL
 
-  ![11-Test](D:\Task\Compute-storage tasks\Task-2\11-Test.png)
+  ![preview](./url.png)
 
 ## Step 24: Upload Image
 
@@ -289,7 +287,7 @@ curl -X PUT -T image.jpg "<URL>"
 
   
 
-  ![12-image uploaded in raw](D:\Task\Compute-storage tasks\Task-2\12-image uploaded in raw.png)
+  ![preview](./s3-raw-bucket.png)
 
 ## Step 26: Check Replication
 
@@ -297,7 +295,7 @@ curl -X PUT -T image.jpg "<URL>"
 
 - File should appear
 
-  ![13-image uploaded to processed indu bucket](D:\Task\Compute-storage tasks\Task-2\13-image uploaded to processed indu bucket.png)
+  ![preview](./output-s3.png)
 
 ------
 
